@@ -1,0 +1,16 @@
+<div class="notification-item">
+  <div class="notification-item_image__wrapper">
+    <span class="icon-Zipper-2"></span>
+  </div>
+  <div class="notification-item_description">
+    <p>{{ notificationData.message }}</p>
+    <app-button
+      *ngIf="!notificationData.title.includes('New refferal')"
+      class="notification-item_update-now__btn"
+      [title]="autoUpdaterService.isDownloaded$.getValue() ? '' : 'Updating is downloading...'"
+      [disabled]="!autoUpdaterService.isDownloaded$.getValue()"
+      [attr.disabled]="!autoUpdaterService.isDownloaded$.getValue()"
+      [buttonData]="{ name: 'Update now', classMod: 'light', size: 'medium' }"
+      (click)="updateNow()"></app-button>
+  </div>
+</div>

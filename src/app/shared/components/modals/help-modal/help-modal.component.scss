@@ -1,0 +1,104 @@
+@import 'mixins';
+
+.help-modal {
+  @include dialog;
+  @include form;
+
+  &__description {
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 165%;
+  }
+
+  &__field-group {
+    textarea {
+      @include custom-scroll;
+      height: 140px;
+      resize: none;
+      padding: 15px 25px;
+    }
+  }
+}
+
+.upload-files {
+  @include upload-files;
+
+  &__button {
+    ::ng-deep {
+      button {
+        padding: 0 25px;
+      }
+    }
+  }
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 12px;
+  }
+
+  &__error {
+    border: 1px solid var(--input-error) !important;
+  }
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background-color: var(--btn-dark-bg);
+}
+
+.container input:checked ~ .checkmark {
+  background-color: var(--color-active);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 11px;
+  top: 6px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+

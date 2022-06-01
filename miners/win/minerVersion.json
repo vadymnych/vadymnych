@@ -1,0 +1,18 @@
+{
+  "phoenix": {
+    "firstVersion": "6.1b",
+    "secondVersion": "6.0b",
+    "thirdVersion": "5.9c"
+  },
+  "trex": {
+    "firstVersion": "0.25.12",
+    "secondVersion": "0.25.9",
+    "thirdVersion": "0.25.8"
+  },
+  "gminer": {
+    "firstVersion": "2.91",
+    "secondVersion": "2.90",
+    "thirdVersion": "2.89"
+  },
+  "updateDate": "29-04-2022"
+}

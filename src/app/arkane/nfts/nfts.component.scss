@@ -1,0 +1,22 @@
+@import 'mixins';
+
+:host {
+  display: block;
+}
+
+.nfts-wrapper {
+  margin-bottom: 30px;
+  position: relative;
+
+  &__header {
+    @include header;
+  }
+}
+
+.nfts {
+  @include product-grid;
+
+  .nft {
+    @include product-item;
+  }
+}

@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>1 Level N.E.P, USDT</th>
+      <th>2 Level N.E.P, USDT</th>
+      <th>3 Level N.E.P, USDT</th>
+      <th>Total, USDT</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="rewards.length > 0; else emptyTable">
+    <tr *ngFor="let reward of rewards">
+      <td>{{ reward.date | date: 'MMM-d-y' }}</td>
+      <td>{{ reward.level1 }}</td>
+      <td>{{ reward.level2 }}</td>
+      <td>{{ reward.level3 }}</td>
+      <td>{{ reward.total }}</td>
+    </tr>
+  </tbody>
+  <ng-template #emptyTable>
+    <tbody>
+      <tr>
+        <td colspan="5" class="empty-row">None</td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>

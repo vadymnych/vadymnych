@@ -1,0 +1,29 @@
+@import 'mixins';
+
+:host {
+  display: block;
+}
+
+.recommendation {
+  @include product-grid;
+
+  overflow: hidden;
+
+  &.ready-to-show {
+    height: 250px;
+    &.with-button {
+      height: 350px;
+    }
+  }
+
+  &__header {
+    @include header;
+  }
+
+  &-item {
+    @include product-item;
+    .with-button & {
+      height: 350px;
+    }
+  }
+}

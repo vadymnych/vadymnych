@@ -1,0 +1,29 @@
+<div class="recommendation__header" *ngIf="recommendationData">
+  <h3 class="recommendation__header-title">{{ headerText }}</h3>
+  <div
+    class="recommendation__header-link"
+    *ngIf="redirectData"
+    (click)="router.navigateByUrl(redirectData.redirectUrl)">
+    {{ redirectData.redirectTitleName }} <span class="icon icon-Arrow-Right"></span>
+  </div>
+</div>
+<div class="recommendation" [ngClass]="{ 'ready-to-show': recommendationData, 'with-button': cartButton }">
+  <div class="recommendation-item" *ngFor="let data of recommendationData" (click)="navigateTo(data)">
+    <div class="recommendation-item__image">
+      <img [src]="data.imageUrl" onError="this.src = './assets/icons/placeholders/market.webp'" alt="" />
+    </div>
+    <div class="recommendation-item__info">
+      <div class="recommendation-item__info-title">
+        {{ data.name.substring(0, 30) }}
+      </div>
+      <div class="recommendation-item__info-currency">{{ data.price | number: '1.2-2' }} {{ data.currency }}</div>
+      <div class="recommendation-item__info-amount" *ngIf="data.amount > 1">x{{ data.amount }}</div>
+      <app-button
+        class="recommendation-item__info-button"
+        *ngIf="cartButton"
+        [buttonData]="button"
+        (click)="addToCart(data, $event)">
+      </app-button>
+    </div>
+  </div>
+</div>

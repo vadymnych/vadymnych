@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Wallet Address</th>
+      <th>Amount, USDT</th>
+      <th>Confirmation</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="withdrawals.length > 0; else emptyTable">
+    <tr *ngFor="let withdrawal of withdrawals">
+      <td>{{ withdrawal.createdOn | date: 'MM.dd.yyyy h:mm:ss' }}</td>
+      <td>{{ withdrawal.walletAddress }}</td>
+      <td>{{ withdrawal.amount }}</td>
+      <td [ngStyle]="{ color: getStatusColor(withdrawal.status) }">
+        {{ withdrawal.status }}
+      </td>
+    </tr>
+  </tbody>
+  <ng-template #emptyTable>
+    <tbody>
+      <tr>
+        <td colspan="4" class="empty-row">None</td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>

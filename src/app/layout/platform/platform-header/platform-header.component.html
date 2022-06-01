@@ -1,0 +1,56 @@
+<div class="header">
+  <div class="top-bar">
+    <span class="icon-TopBar-Minimize" title="Minimize to taskbar" (click)="minimizeToTaskbar()"></span>
+    <span
+      class="icon-TopBar-Maximize"
+      [title]="this.isMaximized ? 'Restore down' : 'Open in full - screen'"
+      (click)="maximize()"></span>
+    <span class="icon-Close-Bold" title="Close" (click)="close()"></span>
+  </div>
+
+  <div class="header-wrapper">
+    <div class="header-logo" [ngClass]="{ minimized: menuService.isMenuMinimized }">
+      <span class="icon-Menu" (click)="toggleMenu()"></span>
+      <app-icon path="logo.png"></app-icon>
+    </div>
+
+    <div class="header-bar">
+      <app-header-balances></app-header-balances>
+      <div class="header_menu">
+        <div class="menu-wrapper">
+          <div class="title">{{ titleGPU }}</div>
+          <div
+            class="monetization-wrapper"
+            [ngClass]="{
+              active:
+                (miningProcessService.miningStatuses.GPU && miningProcessService.isMiningDownloaded) ||
+                isProcessorsWorks
+            }">
+            <app-mining-toggle-switcher
+              (turnedOnStatus)="miningProcessService.onStatusChanged($event, 'GPU')"
+              [miningMode]="'GPU'"
+              [id]="'headerToggle'"></app-mining-toggle-switcher>
+            <span
+              id="plugins-button-icon"
+              class="icon icon-Dots"
+              title="Open plugins"
+              (click)="openMiningPlugins()"></span>
+          </div>
+        </div>
+        <div class="menu-wrapper" title="Open website" (click)="openGaiminWebsite()">
+          <span class="icon icon-Site"></span>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-wrapper" title="Notification" (click)="openNotification()">
+          <span class="icon icon-Notification"></span>
+          <span class="status" [ngClass]="{ active: notificationService.notifications.length > 0 }"></span>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-wrapper" title="Cart" (click)="openCart()">
+          <span class="icon icon-Market-2"></span>
+          <span class="status" [ngClass]="{ active: cartProductCount > 0 }"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

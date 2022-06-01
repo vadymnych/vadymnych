@@ -1,0 +1,14 @@
+@import 'mixins';
+
+.nft-modal {
+  @include dialog;
+  @include form;
+
+  form {
+    margin: 25px 0;
+  }
+
+  &__link {
+    color: var(--color-active);
+  }
+}

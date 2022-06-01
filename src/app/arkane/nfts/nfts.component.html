@@ -1,0 +1,33 @@
+<div class="nfts-wrapper" *ngIf="arkaneService.nfts?.success">
+  <div class="nfts-wrapper__header">
+    <h3 class="nfts-wrapper__header-title">My NFTs</h3>
+    <div class="nfts-wrapper__header-link" (click)="toggleAll()">
+      <div *ngIf="!nftsShowAll">See more<span class="icon icon-Arrow-Bottom"></span></div>
+      <div *ngIf="nftsShowAll">See less<span class="icon icon-Arrow-Top"></span></div>
+    </div>
+  </div>
+  <div class="nfts">
+    <div
+      (click)="navigateTo(data)"
+      class="nft"
+      *ngFor="
+        let data of arkaneService.nfts.result
+          | paginate
+            : {
+                itemsPerPage: paginationData.itemsPerPage,
+                currentPage: paginationData.currentPage,
+                totalItems: paginationData.totalItems
+              }
+      ">
+      <div class="nft__image">
+        <img [src]="data.imageThumbnailUrl" onError="this.src = './assets/icons/placeholders/market.webp'" alt="" />
+      </div>
+      <div class="nft__info">
+        <div class="nft__info-title">
+          {{ data.name }}
+        </div>
+        <div *ngIf="data.balance > 1" class="nft__info-amount">x{{ data.balance }}</div>
+      </div>
+    </div>
+  </div>
+</div>

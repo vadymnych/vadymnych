@@ -1,0 +1,15 @@
+@import 'mixins';
+
+.device-modal {
+  @include dialog;
+
+  &__content {
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+      li {
+        margin: 0 0 15px 0;
+      }
+    }
+  }
+}

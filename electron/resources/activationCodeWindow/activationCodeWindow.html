@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gaimin Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header-nav">
+        <i class="fa fa-window-minimize" id="minimizeBtn"></i>
+        <i class="fa fa-times" id="closeBtn"></i>
+      </nav>
+    </header>
+    <main>
+      <section class="logo-wrapper">
+        <img class="logo__img" src="../gaimin-footer-logo.png" alt="gaimin-logo" />
+      </section>
+      <section class="content-wrapper">
+        <form name="activationCodeForm">
+          <h2 class="content-header__text">Enter activation code:</h2>
+          <input
+            class="content-activation__input"
+            id="activationCodeInput"
+            type="text"
+            placeholder="Put activation code here" />
+          <div id="validationMessage" class="content-activation__input-validation">Invalid activation code</div>
+          <button class="content-activation__button" id="activationCodeBtn">Activate</button>
+        </form>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

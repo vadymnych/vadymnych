@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Activity</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="arkaneService.activities?.result?.length > 0; else emptyTable">
+    <tr *ngFor="let activity of arkaneService.activities.result">
+      <td>{{ activity.eventTimestamp | date: 'MMM-dd-yyyy HH:mm:ss' }}</td>
+      <td>{{ activity.type }}</td>
+    </tr>
+  </tbody>
+  <ng-template #emptyTable>
+    <tbody>
+      <tr>
+        <td colspan="4" class="empty-row">None</td>
+      </tr>
+    </tbody>
+  </ng-template>
+</table>

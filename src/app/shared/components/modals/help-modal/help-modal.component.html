@@ -1,0 +1,66 @@
+<form class="help-modal" [formGroup]="form">
+  <h2 class="help-modal__title">Help Center</h2>
+  <p class="help-modal__description">
+    Help Center provides customers with a web-based, self-service knowledge base. You can use the knowledge base to show
+    localized content in the Help Center, filter its contents to be more helpful.
+  </p>
+
+  <div class="help-modal__field-group">
+    <input id="subject" placeholder="Subject" formControlName="subject" />
+    <div class="help-modal__error" *ngIf="form.get('subject').getError('required') && form.get('subject').touched">
+      The field is required.
+    </div>
+  </div>
+
+  <div class="help-modal__field-group">
+    <input id="email" placeholder="Email" formControlName="email" />
+    <div class="help-modal__error" *ngIf="form.get('email').getError('required') && form.get('email').touched">
+      The field is required.
+    </div>
+    <div class="help-modal__error" *ngIf="form.get('email').getError('email')">This email is invalid</div>
+  </div>
+
+  <div class="help-modal__field-group">
+    <textarea id="description" placeholder="Description" formControlName="description"></textarea>
+    <div
+      class="help-modal__error"
+      *ngIf="form.get('description').getError('required') && form.get('description').touched">
+      The field is required.
+    </div>
+  </div>
+
+  <div class="help-modal__field-group upload-files">
+    <app-button class="upload-files__button" [buttonData]="uploadButton" (click)="fileInput.click()"></app-button>
+    <div *ngIf="image" class="upload-files__file">
+      <div class="upload-files__file-name">
+        <span class="icon icon-Attachment"></span>
+        <p>{{ image.name }}</p>
+      </div>
+      <span
+        class="icon-Close-Bold upload-files__file-remove"
+        title="Remove an uploaded image"
+        (click)="onRemoveFile($event.target)"></span>
+    </div>
+    <input
+      style="display: none"
+      type="file"
+      accept="image/jpeg,image/png"
+      (change)="onSelectImage($event.target.files)"
+      #fileInput />
+  </div>
+
+
+  <label class="container">
+    <span class="text">Send Platform Logs Information</span>
+    <input type="checkbox" [formControl]="form.get('sendLogsCheckBox')" id="sendLogsCheckBox">
+    <span class="checkmark"
+          [ngClass]="{'container__error':form.get('sendLogsCheckBox').invalid && form.get('sendLogsCheckBox').touched}"></span>
+  </label>
+
+
+  <app-button
+    class="help-modal__button"
+    (click)="onSubmit()"
+    [disabled]="form.invalid"
+    [buttonData]="{ name: 'Send' }"></app-button>
+</form>

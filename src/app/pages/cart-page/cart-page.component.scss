@@ -1,0 +1,30 @@
+@use 'sass:math';
+@import 'mixins';
+
+.cart {
+  h2.title {
+    @include title();
+  }
+
+  &-wrapper {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &-list {
+    width: 100%;
+  }
+
+  app-order-summary {
+    width: 460px;
+    margin-left: 25px;
+    flex-shrink: 0;
+    ::ng-deep .order-summary {
+      padding: 35px;
+    }
+    ::ng-deep .view-btn {
+      display: none;
+    }
+  }
+}

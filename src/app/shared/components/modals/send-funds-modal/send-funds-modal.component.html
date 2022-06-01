@@ -1,0 +1,24 @@
+<div class="send-funds">
+  <h3 class="send-funds__title">Send Funds</h3>
+  <form action="" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+    <div class="send-funds__field-group">
+      <input id="addressTo" formControlName="addressTo" #addressTo placeholder="To Wallet / Address / E-mail" />
+      <div class="send-funds__error" *ngIf="form.get('addressTo').invalid && form.get('addressTo').touched">
+        <div *ngIf="form.get('addressTo').errors['required']">The field is required.</div>
+      </div>
+    </div>
+    <div class="send-funds__field-group">
+      <input id="amount" formControlName="amount" #amount placeholder="Amount" />
+      <div class="send-funds__error" *ngIf="form.get('amount').invalid && form.get('amount').touched">
+        <div *ngIf="form.get('amount').errors['required']">The field is required.</div>
+      </div>
+    </div>
+    <div class="send-funds__field-group send-funds__field-group-select">
+      <select id="currency" formControlName="currency" #currency>
+        <option [value]="token.symbol" *ngFor="let token of arkaneService.tokens.result">{{ token.symbol }}</option>
+      </select>
+      <span class="icon-Arrow-Bottom"></span>
+    </div>
+    <app-button class="send-funds__button" [buttonData]="button" [disabled]="!form.valid"> </app-button>
+  </form>
+</div>

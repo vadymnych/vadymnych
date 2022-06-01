@@ -1,0 +1,77 @@
+@import 'mixins';
+
+:host {
+  display: block;
+}
+
+.nep__items {
+  display: flex;
+  justify-content: space-between;
+  .nep__item {
+    @include card;
+    width: 32%;
+    height: 300px;
+    flex-direction: column;
+    &-header {
+      margin: 0 0 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &-title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+      }
+      &-btn {
+        width: 75px;
+        padding: 0 5px;
+        color: var(--color-text-yellow);
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        background: #26262b;
+        border-radius: 3px;
+        span {
+          margin-right: 4px;
+        }
+      }
+    }
+    &-data {
+      display: flex;
+      &-col {
+        margin-right: 20px;
+      }
+      &-value {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 25px;
+      }
+      &-currency {
+        color: var(--color-text-dark);
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+    &-progress {
+      margin-top: auto;
+      padding: 0 0 5px 0;
+      display: flex;
+      flex-direction: column;
+      &-qualified {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 22px;
+      }
+      &-container {
+        width: 100%;
+        p {
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}

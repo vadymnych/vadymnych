@@ -1,0 +1,39 @@
+<div class="nft-modal" (submit)="onSubmit()">
+  <h3 class="nft-modal__title">Congrats, here’s what you need to do now:</h3>
+  <h4>Step 1:</h4>
+  <p>
+    You need to make sure you have a wallet that can “hold” your NFT, the only wallet we support is this:
+    <a class="nft-modal__link" href="https://wallet.venly.io/chains/hedera">Venly wallet</a>
+  </p>
+  <h4>Step 2:</h4>
+  <p>Once you have a wallet, please send us your wallet address, then we’ll verify it and send you your NFT.</p>
+  <p>(Your NFT will be delivered to your wallet as soon as we can, please allow a few days.)</p>
+
+  <div class="nft-modal__content">
+    <form [formGroup]="form">
+      <div class="nft-modal__field-group">
+        <input #wallet class="nft-modal__field" formControlName="wallet" placeholder="Matic wallet address" />
+        <div class="nft-modal__error" *ngIf="form.get('wallet').invalid && form.get('wallet').touched">
+          <div *ngIf="form.get('wallet').errors['required']">The wallet can't be empty.</div>
+          <div *ngIf="form.get('wallet').errors['minlength']">
+            The wallet should have <mark>{{ form.get('wallet').errors['minlength'].requiredLength }}</mark> symbols.
+            Currently you typed <mark>{{ wallet.value.length }}</mark
+            >.
+          </div>
+          <div *ngIf="form.get('wallet').errors['maxlength']">
+            The wallet should have <mark>{{ form.get('wallet').errors['maxlength'].requiredLength }}</mark> symbols.
+            Currently you typed <mark>{{ wallet.value.length }}</mark
+            >.
+          </div>
+        </div>
+      </div>
+      <app-button class="nft-modal__button" [buttonData]="nftButton" [disabled]="!form.valid"> </app-button>
+    </form>
+  </div>
+
+  <h4>Step 3:</h4>
+  <p>Have fun with your new NFT in the upcoming Gaimcraft game, you’ll be equipped with one awesome item! Yay!</p>
+
+  <h4>Step 4:</h4>
+  <p>Don’t stop — now it’s time go and get your next NFT.</p>
+</div>

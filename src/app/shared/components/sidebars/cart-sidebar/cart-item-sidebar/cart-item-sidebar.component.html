@@ -1,0 +1,19 @@
+<div class="cart-item">
+  <img
+    class="cart-item__image"
+    onError="this.src = './assets/icons/placeholders/market.webp'"
+    [src]="cartItem.imageUrl"
+    alt="" />
+
+  <div class="cart-item__wrapper">
+    <div class="cart-item__description">
+      <p>{{ cartItem.name }}</p>
+      <span>{{ cartItem.price }} {{ cartItem.currency }}</span>
+    </div>
+    <div class="cart-item__counter">
+      <span (click)="remove(cartItem)">-</span>
+      <span>{{ cartItem.count }}</span>
+      <span (click)="add(cartItem)">+</span>
+    </div>
+  </div>
+</div>

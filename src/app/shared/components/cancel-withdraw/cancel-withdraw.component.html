@@ -1,0 +1,13 @@
+<div class="cancel-withdraw" *ngIf="isPending">
+  <div class="cancel-withdraw__text">
+    Pending:
+    <span class="cancel-withdraw__text-amount">{{ pendingAmount }} USDT</span>
+  </div>
+  <app-button
+    [buttonData]="button"
+    class="cancel-withdraw__button"
+    (click)="onClick()"
+    [disabled]="isDisabled"
+    [attr.disabled]="isDisabled">
+  </app-button>
+</div>

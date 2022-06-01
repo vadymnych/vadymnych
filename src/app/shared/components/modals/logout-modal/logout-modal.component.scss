@@ -1,0 +1,5 @@
+@import 'mixins';
+
+.logout-modal {
+    @include dialog;
+}
