@@ -1,7 +1,0 @@
-@import 'mixins';
-
-.sidebar {
-  h2 {
-    @include sidebar-header;
-  }
-}

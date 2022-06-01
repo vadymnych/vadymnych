@@ -1,6 +1,0 @@
-@import 'mixins';
-
-.withdraw-modal {
-  @include dialog;
-  @include form;
-}
