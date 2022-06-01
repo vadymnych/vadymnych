@@ -1,0 +1,11 @@
+<div class="confirm-payment">
+  <div class="confirm-payment__layout">
+    <h3 class="confirm-payment__title">Confirmation</h3>
+    <p>
+      <span class="confirm-payment__price">{{ marketService.calcTotal() }}</span>
+      <span class="confirm-payment__currency">GMRX</span>
+      will be paid from your balance.
+    </p>
+    <app-button class="confirm-payment__button" [buttonData]="checkout" (click)="closePopUp()"></app-button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="nep">
+  <app-loader></app-loader>
+
+  <div class="nep__content">
+    <h2 class="title">NEP Squad</h2>
+    <div class="nep__card">
+      <div class="nep__card-data">
+        <div class="nep__card-title">NEP Squad</div>
+        <div class="nep__card-data-body">
+          <div class="nep__col">
+            <div class="nep__col-amount">
+              {{ nepTotal?.total | number: '1.4-4' }}
+              <span>{{ data.totalRewards.currency }}</span>
+            </div>
+            <div class="nep__col-name">{{ data.totalRewards.name }}</div>
+          </div>
+          <div class="nep__col">
+            <div class="nep__col-amount">
+              {{ estimatedNep | number: '1.10-10' }}
+              <span>{{ data.estimatedRewards.currency }}</span>
+            </div>
+            <div class="nep__col-name">{{ data.estimatedRewards.name }}</div>
+          </div>
+          <div class="nep__col">
+            <div class="nep__col-amount">
+              {{ nepService.totalReferrals }}
+            </div>
+            <div class="nep__col-name">{{ data.totalReferals.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="nep__card-socials">
+        <div class="nep__card-title">Share</div>
+        <div class="nep__card-socials-body">
+          <app-socials [referralLink]="referralLink"></app-socials>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">Referral System</h3>
+    <app-nep-table></app-nep-table>
+
+    <app-accordion accordionTitle="My NEP Transaction">
+      <app-nep-transaction-table class="nep__table-transaction"></app-nep-transaction-table>
+    </app-accordion>
+  </div>
+</div>

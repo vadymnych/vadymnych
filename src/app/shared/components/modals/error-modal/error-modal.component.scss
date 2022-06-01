@@ -1,0 +1,9 @@
+@import 'mixins';
+
+.error-modal {
+  @include dialog;
+
+  &__message {
+    word-break: break-word;
+  }
+}

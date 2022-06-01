@@ -1,0 +1,30 @@
+<div class="news">
+  <div class="news-left">
+    <app-label [labelText]="'Feature'" [icon]="'icon-Zipper'" [bgColor]="'#DD185F'"></app-label>
+    <div class="news-left__content">
+      <div>
+        <h2 class="news-left__header">Aqua Adventure</h2>
+        <p class="news-left__text">
+          Bug’s are pesky, but with this helmet, you’ll be able to delete them from any server!
+        </p>
+      </div>
+      <app-button
+        (click)="navigateTo('games/gaimincraft')"
+        [buttonData]="{ name: 'Get it!', classMod: 'light', size: 'medium' }"></app-button>
+    </div>
+  </div>
+
+  <div class="news-right">
+    <img src="assets/icons/home/gta.png" alt="" />
+    <div class="news-right__bottom">
+      <div class="news-right__bottom-item">
+        <img src="assets/icons/home/promo.png" alt="" />
+        <app-label [labelText]="'Promo'" [icon]="'icon-Star'" [bgColor]="'#187EDD'"></app-label>
+      </div>
+      <div class="news-right__bottom-item">
+        <img src="assets/icons/home/new-item.png" alt="" />
+        <app-label [labelText]="'New item'" [icon]="'icon-Star'" [bgColor]="'#DDA618'"></app-label>
+      </div>
+    </div>
+  </div>
+</div>

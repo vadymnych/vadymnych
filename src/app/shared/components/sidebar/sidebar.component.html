@@ -1,0 +1,11 @@
+<div
+  class="sidebar"
+  (click)="outsideClose($event)"
+  [ngClass]="{ sidebar__active: sideBarService.isSideBarOpen.getValue() }">
+  <div class="sidebar-wrapper" [ngClass]="{ 'sidebar-wrapper__active': sideBarService.isSideBarOpen.getValue() }">
+    <span class="sidebar__close-btn icon-Close" (click)="closeNav()"></span>
+    <div class="sidebar-content">
+      <ng-template appInsertion></ng-template>
+    </div>
+  </div>
+</div>

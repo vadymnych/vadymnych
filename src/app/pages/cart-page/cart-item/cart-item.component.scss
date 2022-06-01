@@ -1,0 +1,87 @@
+@import 'mixins';
+
+.cart-item {
+  margin: 0 0 10px;
+  padding: 15px 70px 15px 15px;
+  background: var(--color-sidebar-bg);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__description {
+    margin: 0 10px 0 25px;
+    p {
+      margin-bottom: 14px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      cursor: pointer;
+    }
+
+    span {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 18px;
+      color: var(--color-text-yellow);
+    }
+  }
+
+  &__counter {
+    @include cart-counter;
+  }
+
+  &__menu {
+    position: absolute;
+    right: 13px;
+    top: 19px;
+    font-size: 18px;
+    z-index: 1;
+
+    &-dots {
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    &-remove {
+      width: 145px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 32px;
+      left: 12px;
+      border-radius: 5px;
+      background: #2a2a30;
+      cursor: pointer;
+      .button-remove {
+        padding: 0 5px 0 15px;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 46px;
+        cursor: pointer;
+      }
+      .button-close {
+        padding: 10px 15px 10px 10px;
+        font-size: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="socials">
+  <app-button
+    *ngFor="let button of data"
+    [buttonData]="button"
+    class="socials__button"
+    (click)="onClick($event.target)"></app-button>
+
+  <app-button
+    [buttonData]="buttonCopy"
+    class="socials__button"
+    (click)="copyReferralLink()"
+    [disabled]="!referralLink"
+    [attr.disabled]="!referralLink"></app-button>
+</div>

@@ -1,0 +1,6 @@
+@import 'mixins';
+
+.transfer-nft {
+  @include dialog;
+  @include form;
+}

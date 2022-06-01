@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.cancel-withdraw {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 40px 0;
+
+  &__text {
+    margin-right: 10px;
+    background: var(--color-bg);
+    color: var(--color-text-yellow);
+    text-transform: uppercase;
+
+    &-amount {
+      color: var(--color-text);
+    }
+  }
+}

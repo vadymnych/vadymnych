@@ -1,0 +1,30 @@
+<div
+  class="benchmarking-item"
+  [ngClass]="{
+    'benchmarking-item__best': benchData.isTheBest,
+    'active': benchData.isInProgress
+  }"
+  [title]="benchData.isTheBest ? 'This is the best miner' : ''">
+  <div>
+    <app-icon class="benchmarking-item__image" path="{{ coinsUrls[cryptoCode] }}"></app-icon>
+    <div class="benchmarking-item__name">
+      {{ minerName }} <span>{{ benchData.minerVersion }}</span>
+    </div>
+    <div class="benchmarking-item__date" *ngIf="benchData.averageHashRate !== 0">
+      {{ benchData.benchmarkingDate | date: 'MMM d, y, h:mm:ss' }}
+    </div>
+  </div>
+
+  <div>
+    <div class="benchmarking-item__hashrate-title">Hashrate</div>
+    <div class="benchmarking-item__hashrate-value">
+      <div class="not-support" *ngIf="benchData.averageHashRate === 0 && isHardBenchDone; else hashrate">
+        Not supported
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #hashrate>
+  <div>{{ benchData.averageHashRate }} MH/s</div>
+</ng-template>

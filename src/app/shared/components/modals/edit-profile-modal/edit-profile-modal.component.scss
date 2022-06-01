@@ -1,0 +1,6 @@
+@import 'mixins';
+
+.edit-profile {
+  @include dialog;
+  @include form;
+}

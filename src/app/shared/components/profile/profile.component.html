@@ -1,0 +1,30 @@
+<div class="profile" *ngIf="userService.profile">
+  <div class="profile__avatar">
+    <div class="profile__avatar-image">
+      <img [src]="userService.profile.avatarUrl" (error)="userService.errorHandler($event)" alt="" />
+    </div>
+    <span class="icon icon-Refresh" (click)="onAvatarEdit()"></span>
+  </div>
+  <div class="profile__container">
+    <div class="profile__info">
+      <div class="name-container">
+        <div class="fullname">{{ userService.profile.firstName }} {{ userService.profile.lastName }}</div>
+        <div class="label">@{{ userService.profile.nickName }}</div>
+      </div>
+      <div class="contacts-container">
+        <div class="contacts-col">
+          <div class="name">{{ userService.profile.email }}</div>
+          <div class="label">Email</div>
+        </div>
+        <div class="contacts-col" *ngIf="userService.profile.mobilePhone">
+          <div class="name">{{ userService.profile.mobilePhone }}</div>
+          <div class="label">Phone</div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__info-buttons">
+      <app-button class="edit-button" [buttonData]="editButton" (click)="onProfileEdit()"></app-button>
+      <app-button class="logout-button" [buttonData]="logoutButton" (click)="onLogout()"></app-button>
+    </div>
+  </div>
+</div>

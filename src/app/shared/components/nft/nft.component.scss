@@ -1,0 +1,16 @@
+.nft {
+  &__logo {
+    text-align: center;
+  }
+
+  &__description {
+    margin: 20px 0 0;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &__items {
+    margin: 40px 0 0;
+    display: flex;
+  }
+}

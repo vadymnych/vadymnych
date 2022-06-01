@@ -1,0 +1,52 @@
+@import 'mixins';
+
+.critical-update-modal {
+  @include dialog;
+}
+
+.status_downloading {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  margin: 0 5px;
+  width: 15px;
+
+  & .path {
+    stroke: white;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}

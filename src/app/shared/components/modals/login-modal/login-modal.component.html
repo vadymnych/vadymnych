@@ -1,0 +1,8 @@
+<div class="login-modal">
+    <h3 class="login-modal__title">Please login or create an account</h3>
+    <p>To get access to advanced Gaimin features, please create an account</p>
+    <div class="login-modal__buttons">
+        <app-button class="login-modal__button" [buttonData]="loginButton" (click)="onLogin()"></app-button>
+        <app-button class="login-modal__button" [buttonData]="cancelButton" (click)="onCancel()"></app-button>
+    </div>
+</div>

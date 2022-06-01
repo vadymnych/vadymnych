@@ -1,0 +1,40 @@
+<h2 class="back-link" routerLink="/market" (click)="backClicked()">
+  <span class="icon icon-Arrow-Left"></span>
+  <span class="text">Details</span>
+</h2>
+
+<div class="product">
+  <div class="product__sidebar">
+    <div class="product__image">
+      <img [src]="marketService.product.imageUrl" onError="this.src = './assets/icons/placeholders/market.webp'" />
+    </div>
+  </div>
+  <div class="product__content">
+    <h2 class="product__title">
+      {{ marketService.product.name.substring(0, 50) }}
+    </h2>
+    <div class="product__description">{{ marketService.product.description }}</div>
+    <div class="product__price">
+      {{ marketService.product.price | number: '1.2-2' }} {{ marketService.product.currency }}
+    </div>
+    <div class="product__attributes" *ngIf="marketService.product.amount > 1">
+      <h3>Attributes and Enchantments</h3>
+      <p>
+        Amount: <span>{{ marketService.product.amount }}</span>
+      </p>
+    </div>
+    <div class="product__cart">
+      <div class="product__cart-counter">
+        <span (click)="remove(marketService.product)">-</span>
+        <span>{{ marketService.product.count }}</span>
+        <span (click)="add(marketService.product)">+</span>
+      </div>
+      <app-button class="product__cart-button" [buttonData]="button" (click)="addToCart(marketService.product)">
+      </app-button>
+    </div>
+  </div>
+</div>
+<app-product-recommendation
+  [recommendationData]="recommendationData"
+  [redirectData]="false"
+  [headerText]="'Recommendations'"></app-product-recommendation>

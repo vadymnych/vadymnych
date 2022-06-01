@@ -1,0 +1,188 @@
+@import 'mixins';
+@import './assets/scss/normalize';
+@import '~@ng-select/ng-select/themes/default.theme.css';
+@import '~ngx-toastr/toastr';
+@import '~ngx-smart-modal/ngx-smart-modal';
+@import './assets/scss/customize-ngx-smart-modal';
+@import './assets/icomoon/style.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-text: 'Open Sans', sans-serif;
+
+  --color-text: #fff;
+  --color-text-dark: #585867;
+  --color-text-yellow: #f9e31a;
+  --color-active: #776bf8;
+  --color-bg: #101011;
+  --color-border: #1b1b1d;
+  --color-status: #ef3333;
+  --color-status-success: #09ca56;
+  --color-sidebar-bg: #161618;
+
+  --btn-main-color: #fff;
+  --btn-main-bg: var(--color-active);
+  --btn-main-border: var(--color-active);
+  --btn-secondary-color: #fff;
+  --btn-secondary-bg: #151516;
+  --btn-secondary-border: #2d2d31;
+  --btn-dark-color: #fff;
+  --btn-dark-bg: #1f1f25;
+  --btn-dark-border: #1f1f25;
+  --btn-light-color: #343434;
+  --btn-light-bg: #fff;
+  --btn-light-border: #343434;
+  --btn-social-color: #fff;
+  --btn-social-bg: transparent;
+  --btn-social-border: transparent;
+
+  --modal-bg: #141416;
+
+  --card-bg: #17171c;
+
+  --input-height: 60px;
+  --input-color: #fff;
+  --input-bg: #1a1a1e;
+  --input-bg-active: #222228;
+  --input-error: #821718;
+  --input-error-bg: #26262e;
+  --input-error-color: #fff;
+
+  --progress-bar-bg: #26262d;
+  --progress-bar-active: var(--color-text-yellow);
+
+  --notification-bg: #1b1b1f;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: var(--color-text);
+  font: 14px/14px var(--font-text);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+body {
+  flex-direction: column;
+
+  &.gaimincraft-bg {
+    background-image: url('~src/assets/icons/games/minecraft-bg.png');
+    background-repeat: no-repeat;
+    background-position: 100% 30px;
+    background-size: contain;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+a {
+  text-decoration: none;
+}
+
+.overlay {
+  @include page;
+}
+
+.toast-custom {
+  font-size: 13px;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+.toast-container {
+  right: 24px;
+  .ngx-toastr {
+    width: 420px;
+    min-height: 106px;
+    margin: 0 0 10px;
+    padding: 30px 30px 30px 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: none;
+
+    &:before {
+      width: 46px;
+      height: 46px;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: icomoon;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    &.toast-success {
+      background: var(--notification-bg);
+      &:before {
+        content: '\e91e';
+        background: #30e2a4;
+      }
+    }
+
+    &.toast-warning {
+      background: var(--notification-bg);
+      &:before {
+        content: '\e90d';
+        background: #e7ac14;
+      }
+    }
+
+    &.toast-error {
+      background: var(--notification-bg);
+      &:before {
+        content: '\e92a';
+        background: #dd185f;
+      }
+    }
+
+    .toast-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .toast-message {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      word-break: break-word;
+    }
+
+    .toast-close-button {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      font-size: 31px;
+      font-weight: 300;
+      text-shadow: none;
+      &:focus,
+      &:hover {
+        color: #fff;
+        opacity: 1;
+      }
+    }
+  }
+}

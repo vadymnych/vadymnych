@@ -1,0 +1,42 @@
+@import 'mixins';
+
+.games {
+  &-page {
+    &-bg {
+      &:before {
+        content: '';
+        background: linear-gradient(180deg, #111112 0%, rgba(17, 17, 18, 0.838542) 8.85%, rgba(17, 17, 18, 0.4) 100%),
+          url('~src/assets/icons/games/games-bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 57%;
+      }
+    }
+
+    &__header {
+      @include subtitle();
+    }
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-item {
+    width: 49%;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+
+    &__img {
+      width: 100%;
+    }
+  }
+}

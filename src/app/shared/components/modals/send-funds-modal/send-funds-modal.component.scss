@@ -1,0 +1,6 @@
+@import 'mixins';
+
+.send-funds {
+  @include dialog;
+  @include form;
+}

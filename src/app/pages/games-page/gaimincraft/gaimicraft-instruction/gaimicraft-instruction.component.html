@@ -1,0 +1,31 @@
+<div class="instruction">
+  <h2 class="instruction__header">Connection to server</h2>
+  <div class="instruction-list">
+    <div class="instruction-list__item">
+      <h3>Step 1</h3>
+      <p>Enter the domain to Minecraft Java Client to join the server</p>
+      <div class="instruction-field">
+        <div class="instruction-field__data">{{ serverData.domain }}</div>
+        <span
+          class="icon icon-Copy"
+          title="Click to copy"
+          (click)="onCopy(copyType.SERVER_ADDRESS, serverData.domain)"></span>
+      </div>
+      <div class="instruction-download">
+        Don’t have one? You can easily get it
+        <a href="https://www.minecraft.net/en-us/store/minecraft-java-edition">here</a>
+      </div>
+    </div>
+    <div class="instruction-list__item">
+      <h3>Step 2</h3>
+      <p>Enter your unique login link into the game chat</p>
+      <div class="instruction-field">
+        <input class="instruction-field__data" readonly [value]="serverData.uniqueLink" />
+        <span
+          class="icon icon-Copy"
+          title="Click to copy"
+          (click)="onCopy(copyType.LOGIN_TOKEN, serverData.uniqueLink)"></span>
+      </div>
+    </div>
+  </div>
+</div>

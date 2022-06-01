@@ -1,0 +1,7 @@
+@import 'mixins';
+
+.dashboard {
+  h2.title {
+    @include title();
+  }
+}

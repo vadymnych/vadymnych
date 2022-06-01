@@ -1,0 +1,10 @@
+@import 'mixins';
+
+.profile-page {
+  h2.title {
+    @include title();
+  }
+  h3.sub-title {
+    @include subtitle();
+  }
+}

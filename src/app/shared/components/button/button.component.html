@@ -1,0 +1,14 @@
+<button
+  class="button"
+  [ngClass]="[
+    buttonData.classMod ? 'button_' + buttonData.classMod : '',
+    buttonData.size ? 'button_' + buttonData.size : 'button_large',
+    buttonData.icon ? 'button_with_icon' : ''
+  ]"
+  [type]="buttonData.type ? buttonData.type : 'button'"
+  [disabled]="disabled"
+  [attr.data-type]="buttonData.dataType"
+  (click)="trackEvent()">
+  <span *ngIf="buttonData.name" class="button__text">{{ buttonData.name }}</span>
+  <span *ngIf="buttonData.icon" class="button__icon" [ngClass]="buttonData.icon"></span>
+</button>

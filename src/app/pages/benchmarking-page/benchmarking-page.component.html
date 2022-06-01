@@ -1,0 +1,22 @@
+<div class="benchmarking">
+  <div class="benchmarking__info">
+    <h2 class="benchmarking__title">Benchmarking</h2>
+    <p class="benchmarking__description">
+      Benchmarking enables our AI Engine to select the most profitable software for your specific configuration.
+    </p>
+    <p class="benchmarking__description">
+      This section identifies the most appropriate software for monetisation functionality to power blockchain
+      computations.
+    </p>
+  </div>
+
+  <button
+    class="benchmarking__start-btn"
+    [disabled]="miningProcessService.isDownloading$ | async"
+    (click)="startBench()">
+    {{ buttonTitle }}
+    <app-benchmarking-spinner [isActive]="isBenchmarkingActive"></app-benchmarking-spinner>
+  </button>
+</div>
+
+<app-benchmarking-list></app-benchmarking-list>
