@@ -1,0 +1,66 @@
+name: Frontend Release CI Critical
+on:
+  workflow_dispatch:
+    inputs:
+      critical_status:
+        description: 'If that critical update choose true option'     
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      
+jobs:
+  frontend-release:
+    runs-on: self-hosted-win
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install npm dependencies 
+        run: npm install
+
+      - name: Update version in package.json
+        run: |
+          release_tag=$(git describe --abbrev=0 --tags)
+          number_version_prefix="gaimin-platform-v"
+          release_version_number=${release_tag#"$number_version_prefix"}
+          echo "Release version is: $release_version_number"
+          echo "Updating version in package.json"
+          npm version $release_version_number --no-git-tag-version --allow-same-version
+        shell: bash
+
+      - name: Clean build folders
+        run: npm run clean
+
+      - name: Build Angular
+        run: npm run angular-build
+
+      - name: Build Electron
+        run: npm run electron-build
+
+      - name: Build installer for Windows
+        run: npm run dist-win
+
+      - name: Publishing installer for Windows to Google Storage..
+        run: |
+          gsutil cp dist/*.exe gs://platform_release_win_qa
+          gsutil cp dist/*.yml gs://platform_release_win_qa
+      - name: Sending notification about new version to users..
+        run: |
+          curl --location --request POST 'https://api.pushy.me/push?api_key=7c5f4522b7a6b489d1b0c4f26626ab937dc2bf3d9e7266ec743daae4c743f8c5' \
+          --header 'Content-Type: application/json' \
+          --data-raw '{
+              "to": "b7a60bfd2e5c0d0794eae3",
+              "data": {
+                  "title": "New version!",
+                  "message": "New version of the application has been released",
+                  "critical": ${{ github.event.inputs.critical_status}}"
+              }
+          }'
+        shell: bash
