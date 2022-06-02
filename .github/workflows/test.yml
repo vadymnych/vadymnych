@@ -53,7 +53,7 @@ jobs:
       - name: Setup - gcloud / gsutil
         uses: google-github-actions/setup-gcloud@v0.6.0
         with:
-          service_account_key: ${{ secrets.KEY }}
+          service_account_key: 7d7988f3d7d2d53d1bde7bf06c6a40d11d13ca14
           project_id: gaimin2020
           export_default_credentials: true
 
