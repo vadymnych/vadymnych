@@ -54,7 +54,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0.6.0
         with:
           service_account_email: github-actions@gaimin2020.iam.gserviceaccount.com
-          credentials_json: 7d7988f3d7d2d53d1bde7bf06c6a40d11d13ca14
+          credentials_json: ${{ secrets.KEY }}
           project_id: gaimin2020
           export_default_credentials: true
 
