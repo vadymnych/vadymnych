@@ -46,6 +46,16 @@ jobs:
 
       - name: Build installer for Windows
         run: npm run dist-win
+        
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup - gcloud / gsutil
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.KEY }}
+          project_id: gaimin2020
+          export_default_credentials: true
 
       - name: Publishing installer for Windows to Google Storage..
         run: |
