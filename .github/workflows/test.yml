@@ -13,7 +13,7 @@ on:
       
 jobs:
   frontend-release:
-    runs-on: windows-2019	
+    runs-on: self-hosted
     strategy:
       matrix:
         node-version: [12.x]
@@ -49,15 +49,7 @@ jobs:
         
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup - gcloud / gsutil
-        uses: google-github-actions/setup-gcloud@v0.6.0
-        with:
-          service_account_email: github-actions@gaimin2020.iam.gserviceaccount.com
-          credentials_json: '${{ secrets.KEY }}'
-          project_id: gaimin2020
-          export_default_credentials: true
-
+        
       - name: Publishing installer for Windows to Google Storage..
         run: |
           gsutil cp dist/*.exe gs://platform_release_win_qa
