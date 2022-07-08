@@ -1,9 +1,0 @@
-<div class="nft" *ngIf="userService.nftData">
-  <div class="nft__logo"><img [src]="'./assets/icons/nft/logo-nft.png'" /></div>
-  <p class="nft__description">
-    You can receive limited edition, custom created NFT’s by reaching the cumulative hours of monetization
-  </p>
-  <div class="nft__items">
-    <app-nft-item class="nft__item" *ngFor="let itemData of userService.nftData" [data]="itemData"></app-nft-item>
-  </div>
-</div>
